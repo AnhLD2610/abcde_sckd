@@ -83,6 +83,7 @@ class Bert_Encoder(base_model):
                     output2.append(instance_output2)  # [B,2,H]
                 print(output1)
                 print(output2)
+                print(output1[0].shape)
                 # Concatenate the output tensors and reshape them
                 output1 = torch.cat(output1, dim=0).view(output1[0].size()[0], -1)  # [B,H*2]
                 output2 = torch.cat(output2, dim=0).view(output2[0].size()[0], -1)  # [B,H*2]
