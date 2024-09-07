@@ -556,7 +556,7 @@ def data_augmentation(config, encoder, train_data, prev_train_data):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--task", default="tacred", type=str)
-    parser.add_argument("--shot", default=10, type=str)
+    parser.add_argument("--shot", default=10, type=int)
     parser.add_argument('--config', default='config.ini')
     args = parser.parse_args()
     config = Config(args.config)
