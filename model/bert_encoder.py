@@ -88,7 +88,7 @@ class Bert_Encoder(base_model):
                 output1 = torch.cat(output1, dim=0)
                 output1 = output1.view(output1.size(0), -1) # [B,H*2]
                 output2 = torch.cat(output2, dim=0).view(output2[0].size()[0], -1) 
-                output2 = output2.view(output2[0].size()[0], -1) # [B,H*2]
+                output2 = output2.view(output2.size(0), -1) # [B,H*2]
 
                 return output1, output2  # Return both outputs for the two concatenated samples
             
