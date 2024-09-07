@@ -81,13 +81,14 @@ class Bert_Encoder(base_model):
                     # Extract the second pair's representations ([E11] and [E21] from the second sequence)
                     instance_output2 = torch.index_select(instance_output, 1, torch.tensor([e11_2[i], e21_2[i]]).cuda())
                     output2.append(instance_output2)  # [B,2,H]
-                print(output1)
-                print(output2)
-                print(output1[0].shape)
+                # print(output1)
+                # print(output2)
+                # print(output1[0].shape)
                 # Concatenate the output tensors and reshape them
-                output1 = torch.cat(output1, dim=0).view(output1[0].size()[0], -1)  # [B,H*2]
-                output2 = torch.cat(output2, dim=0).view(output2[0].size()[0], -1)  # [B,H*2]
-                
+                output1 = torch.cat(output1, dim=0)
+                output1 = output1.view(output1.size(0), -1) # [B,H*2]
+                output2 = torch.cat(output2, dim=0).view(output2[0].size()[0], -1) 
+                output2 = output2.view(output2[0].size()[0], -1) # [B,H*2]
 
                 return output1, output2  # Return both outputs for the two concatenated samples
             
